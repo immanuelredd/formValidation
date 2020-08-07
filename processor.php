@@ -36,12 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         {
             $error['emailErr']= "You must Enter your Email";
         }else {
-
-//        if (!preg_match("//w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+/", $_POST['Email'])) {
+//            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+        if (!preg_match("/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/", $_POST['Email'])) {
 
                         #####OR#####
 
-            if (!filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL)) {
+//            if (!filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL)) {
                 $error['emailErr'] = "Invalid email format";
             }
         }
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $error['passwordErr']= "You must Enter a password";
         }else {
 
-            if (!preg_match("/^(?=.*[!@$%^&*()\-_=+{};:,<.>])(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{15,}$/", $_POST['password'])) {
+            if (!preg_match("/^(?=.*[!@$%^&*()\-_=+{};#:,<.>])(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{15,}$/", $_POST['password'])) {
                 $error['passwordErr'] = "Invalid password format,passwords must have,at least an uppercase,a lowercase,a digit,a special character and longer than 15 characters";
             }
             $password=$_POST['password'];
@@ -92,7 +92,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $error['main']="Correct the errors";
         }else{
            $strip= str_replace("#", "", $color);
-//           $password= str_replace("#", "", $password);
+//           $password= str_replace("#", "\#", $password);
+            $password=htmlentities($password);
 
             header("location:landing.php?color=$strip&firstname=$firstname&lastname=$lastname&email=$email&DOB=$date&gender=$gender&dept=$dept&password=$password");
         }
