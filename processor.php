@@ -45,16 +45,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $error['emailErr'] = "Invalid email format";
             }
         }
-        echo  $email = $_POST['Email'];
+        $email = $_POST['Email'];
 
-        echo $color = $_POST['Fcolor'];
+         $color = $_POST['Fcolor'];
 
 
         if(empty($_POST['date']))
         {
             $error['dateErr']= "You must select a date";
         }
-        echo $date=$_POST['date'];
+        $date=$_POST['date'];
 
 
         if(empty($_POST['gender']))
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if($no_checked>1) {
                 $error['genderErr'] = "Baba wetyn Na,Select one option";
             }else{
-                echo   $gender = $_POST['gender'][0];
+               $gender = $_POST['gender'][0];
 
             }
         }
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if(empty($_POST['dept'])){
             $error['deptErr']= "You must select a department";
     }
-       echo $dept=$_POST['dept'];
+        $dept=$_POST['dept'];
 
 
         if(empty($_POST['password']))
@@ -83,17 +83,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $error['passwordErr']= "You must Enter a password";
         }else {
 
-            if (!preg_match("/^(?=.*[!@#$%^&*()\-_=+{};:,<.>])(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{15,}$/", $_POST['password'])) {
+            if (!preg_match("/^(?=.*[!@$%^&*()\-_=+{};:,<.>])(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{15,}$/", $_POST['password'])) {
                 $error['passwordErr'] = "Invalid password format,passwords must have,at least an uppercase,a lowercase,a digit,a special character and longer than 15 characters";
             }
-            echo $password=$_POST['password'];
+            $password=$_POST['password'];
     }
         if(array_filter($error)){
             $error['main']="Correct the errors";
         }else{
            $strip= str_replace("#", "", $color);
+//           $password= str_replace("#", "", $password);
 
-            header("location:landing.php?color=$strip");
+            header("location:landing.php?color=$strip&firstname=$firstname&lastname=$lastname&email=$email&DOB=$date&gender=$gender&dept=$dept&password=$password");
         }
     }
 }
