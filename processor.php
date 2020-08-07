@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if($no_checked>1) {
                 $error['genderErr'] = "Baba wetyn Na,Select one option";
             }else{
-                echo   $gender = $_POST['gender'][0];
+               $gender = $_POST['gender'][0];
 
             }
         }
