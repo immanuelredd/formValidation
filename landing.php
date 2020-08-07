@@ -1,9 +1,16 @@
 
 <?php
-if(!empty($_GET['color'])){
+if(!empty($_GET['color']) && !empty($_GET['firstname'])&& !empty($_GET['lastname'])&& !empty($_GET['email'])&& !empty($_GET['DOB'])&& !empty($_GET['gender'])&& !empty($_GET['dept'])&& !empty($_GET['password'])){
      $color=$_GET['color'];
+     $firstname=$_GET['firstname'];
+     $lastname=$_GET['lastname'];
+     $email=$_GET['email'];
+     $DOB=$_GET['DOB'];
+     $gender=$_GET['gender'];
+     $dept=$_GET['dept'];
+     $password=$_GET['password'];
 }else{
-    echo 'ungetted';
+    header("location:index.php?error=''");
 }
 
 ?>
@@ -18,14 +25,29 @@ if(!empty($_GET['color'])){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
 <!--    <link href="css/main.css" rel="stylesheet" media="all">-->
 </head>
-<body style="background-color:<?php echo $color; ?>">
+<body style="background-color:<?php echo $color; ?>;">
 
 
 <div class="container">
     <div class="row">
         <div class="col-12">
             <div class="card mb-3 ">
-                <img src="image/welcome.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Hi! <?php echo $firstname ." ". $lastname;?></h5>
+                    <div class="card-header"
+                         Here are your details
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Email address: <strong><?php echo $email;?></strong></li>
+                        <li class="list-group-item">Date of birth: <strong><?php echo $DOB;?></strong></li>
+                        <li class="list-group-item">Favorite Color:<strong style="color:<?php echo $color;?>"><?php echo $color;?></strong></li>
+                        <li class="list-group-item">Gender: <strong><?php echo $gender;?></strong></li>
+                        <li class="list-group-item">Department: <strong><?php echo $dept;?></strong></li>
+                        <li class="list-group-item">Password: <strong><?php echo $password;?></strong></li>
+
+                    </ul>
+
+                </div>
         <div class="alert alert-success" style="text-align: center"><h3>The amount of knowledge you have is how small your limit is.</h3></div>
             </div>
         </div>
