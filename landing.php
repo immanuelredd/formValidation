@@ -10,7 +10,7 @@ if(!empty($_GET['color']) && !empty($_GET['firstname'])&& !empty($_GET['lastname
      $dept=$_GET['dept'];
      $password=$_GET['password'];
 }else{
-    header("location:index.php?error=''");
+    header("location:index.php?error=1");
 }
 
 ?>

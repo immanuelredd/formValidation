@@ -1,6 +1,11 @@
 
 <?php
-include ("processor.php")
+include ("processor.php");
+if(!empty($_GET['error'])){
+    $Server_error="Our server rejected this request,wrong parameter(#)exist in your username or password";
+}else{
+    $Server_error="";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +31,7 @@ include ("processor.php")
                     <h5 class="card-title">Register</h5>
                     <div>
                     <span class="text-danger" style="text-align: left"><h3><?php echo $error['main']; ?></h3></span>
+                    <span class="text-danger" style="text-align: left"><h3><?php echo $Server_error; ?></h3></span>
                     </div>
                 <form method="post" action="">
                     <div class="row mb-3">
