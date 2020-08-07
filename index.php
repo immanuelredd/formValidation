@@ -35,16 +35,16 @@ if(!empty($_GET['error'])){
                     </div>
                 <form method="post" action="">
                     <div class="row mb-3">
-                        <div class="col-4 ">
+                        <div class="col-xs-6 col-md-4 ">
                             <label for="">First Name</label>
 
-                            <input type="text" class="form-control" placeholder="First Name" name="firstName" >
+                            <input type="text" class="form-control" placeholder="First Name" name="firstName" id="firstName"  value="<?php echo $firstname?>">
                        <span class="text-danger"><?php echo $error['firstnameErr']; ?></span>
                         </div>
-                        <div class="col-8">
+                        <div class="col-xs-6 col-md-8">
                             <label for="">Last Name</label>
 
-                            <input type="text" class="form-control" placeholder="Last Name" name="lastName" >
+                            <input type="text" class="form-control" placeholder="Last Name" name="lastName" id="lastName" value="<?php echo $lastname?>">
                             <span class="text-danger"><?php echo $error['lastnameErr']; ?></span>
 
                         </div>
@@ -58,7 +58,7 @@ if(!empty($_GET['error'])){
                             <span class="input-group-text" >@</span>
                         </div>
 
-                        <input type="text" class="form-control" name="Email" placeholder="Email" >
+                        <input type="text" class="form-control" name="Email" placeholder="Email" id="email" value="<?php echo $email?>">
                     </div>
                         <span class="text-danger"><?php echo $error['emailErr']; ?></span>
 
@@ -67,7 +67,7 @@ if(!empty($_GET['error'])){
 
                     <div class="row mb-3">
 
-                        <div class=" col-4">
+                        <div class="col-xs-6 col-md-4">
                             <label for="">Date of Birth</label>
 
                             <div class="input-group">
@@ -78,16 +78,16 @@ if(!empty($_GET['error'])){
   <path fill-rule="evenodd" d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
 </svg></span>
                             </div>
-                            <input type="date" class="form-control" placeholder="Date" name="date" >
+                            <input type="date" class="form-control" placeholder="Date" name="date" value="<?php echo $date?>">
                         </div>
                             <span class="text-danger"><?php echo $error['dateErr']; ?></span>
 
                         </div>
 
-                        <div class="col-8">
+                        <div class="col-xs-6 col-md-8">
                             <label for="">Favourite Color</label>
 
-                            <input type="color" class="form-control Fcolor" name="Fcolor" placeholder="Click here to change color">
+                            <input type="color" class="form-control Fcolor" name="Fcolor" placeholder="Click here to change color" value="<?php echo $color; ?>">
                             <span class="text-info">Click on the above tab/input to pick a color</span>
 
                         </div>
@@ -97,7 +97,7 @@ if(!empty($_GET['error'])){
 
 
                     <div class="row mb-3">
-                        <div class="col-4">
+                        <div class="col-xs-6 col-md-4">
                             <label for="">Gender</label>
 <div class="row">
                             <div class="col-6 mb-2">
@@ -105,7 +105,7 @@ if(!empty($_GET['error'])){
                             <div class="input-group-prepend">
                                     <span class="input-group-text" style="">M</span>
                             </div>
-                            <input type="checkbox" name="gender[]" value="Male" class="form-control">
+                            <input type="checkbox" name="gender[]" value="Male"<?= ($gender == "Male")? 'checked="checked"':"";?> class="form-control">
                             </div>
                         </div>
 
@@ -114,7 +114,7 @@ if(!empty($_GET['error'])){
                             <div class="input-group-prepend">
                                     <span class="input-group-text" style="" >F</span>
                             </div>
-                            <input type="checkbox" name="gender[]"  value="Female" class="form-control">
+                            <input type="checkbox" name="gender[]"  value="Female"<?= ($gender == "Female")? 'checked="checked"':"";?> class="form-control">
                             </div>
                         </div>
 </div>
@@ -122,7 +122,7 @@ if(!empty($_GET['error'])){
 
                         </div>
 
-                        <div class="col-8">
+                        <div class="col-xs-6 col-md-8">
                             <label for="">Department</label><br>
 <div class="input-group">
     <div class="input-group-prepend">
@@ -133,9 +133,9 @@ if(!empty($_GET['error'])){
     </div>
                             <select name="dept" class="form-control" >
                                 <option selected="" value="">Select your Department</option>
-                                <option value="IT">IT</option>
-                                <option value="HR">Human resources</option>
-                                <option value="FIN">Finance</option>
+                                <option value="IT"<?= ($dept == "IT")? "selected":"";?>>IT</option>
+                                <option value="HR"<?= ($dept == "HR")? "selected":"";?>>Human resources</option>
+                                <option value="FIN"<?= ($dept== "FIN")? "selected":"";?>>Finance</option>
                             </select>
                         </div>
                             <span class="text-danger"><?php echo $error['deptErr']; ?></span>
@@ -172,7 +172,7 @@ if(!empty($_GET['error'])){
 
 </div>
 <!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
 </body>
