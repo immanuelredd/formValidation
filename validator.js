@@ -170,9 +170,16 @@ function validateForm() {
     if(date == "") {
         findError("dateErr", "Please select a date with the icon");
     } else {
+        let today=new Date();
+        let mydate=new Date(date);
 
-        findError("dateErr", "");
-        dateErr = false;
+        if(mydate > today){
+            findError("dateErr", "You can't be born in the future na");
+        }else {
+
+            findError("dateErr", "");
+            dateErr = false;
+        }
 
     }
 

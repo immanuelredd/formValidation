@@ -18,7 +18,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-xs-12 col-md-12">
             <div class="card mb-3 ">
                 <img src="image/welcome.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -27,13 +27,13 @@
                     </div>
                     <form  method="post" action="landing.php" onsubmit="return validateForm()" name="regForm">
                         <div class="row mb-3">
-                            <div class="col-4 ">
+                            <div class="col-xs-6 col-md-4 ">
                                 <label for="">First Name</label>
 
                                 <input type="text" class="form-control" placeholder="First Name" name="firstName" >
                                 <span class="text-danger" id="firstNameErr"></span>
                             </div>
-                            <div class="col-8">
+                            <div class="col-xs-6 col-md-8">
                                 <label for="">Last Name</label>
 
                                 <input type="text" class="form-control" placeholder="Last Name" name="lastName" >
@@ -59,7 +59,7 @@
 
                         <div class="row mb-3">
 
-                            <div class=" col-4">
+                            <div class="col-xs-6 col-md-4">
                                 <label for="">Date of Birth</label>
 
                                 <div class="input-group">
@@ -76,7 +76,7 @@
 
                             </div>
 
-                            <div class="col-8">
+                            <div class="col-xs-6 col-md-8">
                                 <label for="">Favourite Color</label>
 
                                 <input type="color" class="form-control Fcolor" name="Fcolor" placeholder="Click here to change color">
@@ -89,10 +89,10 @@
 
 
                         <div class="row mb-3">
-                            <div class="col-4">
+                            <div class="col-xs-6 col-md-4">
                                 <label for="">Gender</label>
                                 <div class="row">
-                                    <div class="col-6 mb-2">
+                                    <div class="col-xs-6 col-md-6 mb-2">
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" style="">M</span>
@@ -101,7 +101,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-6">
+                                    <div class="col-xs-6 col-md-6">
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" style="" >F</span>
@@ -114,7 +114,7 @@
 
                             </div>
 
-                            <div class="col-8">
+                            <div class="col-xs-6 col-md-8">
                                 <label for="">Department</label><br>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -152,7 +152,7 @@
 
 
                         <div class="row mb-3 mx-1 justify-content-center ">
-                            <input type="submit" name="register" value="Submit">
+                            <input type="submit" name="register" class="btn btn-success " value="Submit">
                         </div>
                     </form>
                 </div>

@@ -9,7 +9,7 @@ if(!empty($_POST['firstName']) && !empty($_POST['lastName']) && !empty($_POST['e
     $color=$_POST['Fcolor'];
     $gender=$_POST['gender'];
     $dept=$_POST['dept'];
-    $password=$_POST['password'];
+//    $password=$_POST['password'];
 }else{
     echo 'ungetted';
 }
@@ -44,7 +44,7 @@ if(!empty($_POST['firstName']) && !empty($_POST['lastName']) && !empty($_POST['e
                     <li class="list-group-item">Favorite Color:<strong style="color:<?php echo $color;?>"><?php echo $color;?></strong></li>
                     <li class="list-group-item">Gender: <strong><?php echo $gender;?></strong></li>
                     <li class="list-group-item">Department: <strong><?php echo $dept;?></strong></li>
-                    <li class="list-group-item">Password: <strong><?php echo $password;?></strong></li>
+<!--                    <li class="list-group-item">Password: <strong>--><?php //echo $password;?><!--</strong></li>-->
 
                 </ul>
 
