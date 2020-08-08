@@ -172,7 +172,8 @@ function validateForm() {
     } else {
         let today=new Date();
         let mydate=new Date(date);
-
+console.log(today);
+console.log(mydate);
         if(mydate > today){
             findError("dateErr", "You can't be born in the future na");
         }else {
